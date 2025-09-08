@@ -1,106 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+
 header {
     background-color: #4cb69f;
-    /* Light background for the header */
     padding: 20px 0;
-    /* Add vertical padding for spaciousness */
-}
-header.black_theme {
-    background-color: #b3b3b3;
-    color: white;
+    transition: background-color 0.3s ease;
 }
 
 nav ul {
     display: flex;
-    /* Use Flexbox to align items in a row */
     justify-content: center;
-    /* Center the items horizontally */
     align-items: center;
-    /* Center the items vertically */
     list-style: none;
-    /* Remove the bullet points from the list */
-    padding: 0px;
+    padding: 0;
+    margin: 0;
 }
+
 nav li {
-    margin: 0 45px;
-    /* Add horizontal spacing between each item */
+    margin: 0 20px;
 }
+
 nav a,
 #theme-toggle {
     text-decoration: none;
-    /* Remove underline from links */
-    color: #2c1307;
-    /* Dark text color for better readability */
-    font-size: 16px;
-    /* Adjust the font size */
-    padding: 8px 12px;
-    /* Add padding inside the links and button */
-    transition: background-color 0.3s ease;
-    /* Smooth transition for hover effects */
-}
-nav a:hover {
-    background-color: #e2e6ea;
-}
-
-#backendPojects {
-    background-color: #e4fee2;
-    margin: 10px;
-    padding: 20px;
-}
-#backendPojects h2{
-    color: darkcyan;
-    font-size: xx-large;
-}
-
-
-
-
-.button {
-    padding: 5px;
-    border-radius: 6px;
-    background-color: #007bff;
-    /* Button background color */
     color: #fff;
-    /* Text color */
-    border: none;
-    /* Remove border */
-    cursor: pointer;
-    /* Change cursor to pointer */
-    transition: background-color 0.3s ease;
-}
-.button:hover {
-    background-color: #0056b3;
-    /* Darker background color on hover */
-}
-
-.support {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-#contact {
-    background-color: cadetblue;
-    padding: 5px;
-    border-radius: 10px;
-}
-#contact.dark_theme {
-    background-color: #090909;
-    color: white;
-}
-#contact h2 {
-    color: white;
-    margin: 0;
-    /* Removes default margin */
-    margin-right: 20px;
-    /* Adds some space between the h2 and the a tag */
-}
-#contact a {
-    color: white;
-    /* Example styling for the link */
-    background-color: #007bff;
-    padding: 5px 10px;
+    font-size: 16px;
+    padding: 8px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-#contact a:hover {
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#theme-toggle {
+    background-color: #fff;
+    color: #4cb69f;
+    border: none;
+    cursor: pointer;
+}
+
+#backendProjects {
+    padding: 40px 20px;
+    background-color: #f4f7f6;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#backendProjects h2 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+}
+
+#projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #4cb69f;
+    transition: color 0.3s ease;
+}
+
+.project-card p {
+    color: #666;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#pagination-container {
+    margin-top: 40px;
+}
+
+.pagination-btn {
+    background-color: #ddd;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: #ccc;
+}
+
+.pagination-btn.active {
+    background-color: #4cb69f;
+    color: white;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* --- NEW DARK THEME STYLES --- */
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header.black_theme {
+    background-color: #1f1f1f;
+}
+
+#backendProjects.dark-theme {
+    background-color: #1e1e1e;
+}
+
+#backendProjects.dark-theme h2 {
+    color: #e0e0e0;
+}
+
+.dark-theme .project-card {
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .project-card p {
+    color: #b0b0b0;
+}
+
+footer#contact.dark-theme {
+    background-color: #1f1f1f;
+}
+
+.black_theme #theme-toggle {
+    background-color: #333;
+    color: #fff;
 }
