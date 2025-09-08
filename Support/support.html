@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="support.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../Backend/backend.html">Backend</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><button id="theme-toggle">Toggle Theme</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="headerDiv">
+            <h2>Support Page</h2>
+        </div>
+
+
+        <div class="formdiv">
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+                <label for="phone">Mobile Number</label>
+                <input type="tel" name="phone" id="phone">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button class="supportSubmit" type="submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+    <script src="support.js"></script>
+</body>
+
+</html>

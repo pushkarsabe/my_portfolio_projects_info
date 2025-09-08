@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="./Backend/backend.html">Backend</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="/Support/support.html">Contact</a></li>
+                <li><button id="theme-toggle">Toggle Theme</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hi, I'm Pushkar Sabe, a Software Engineer. Here's a look at what I do.</p>
+    </section>
+
+    <section id="backgroundImage">
+        <div class="imageDiv">
+            <img src="/Images/Books.jpg" alt="Books Image">
+        </div>
+        <div class="imageDiv">
+            <img src="/Images/Physics.jpg" alt="Physics Image">
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>In Progress...</h2>
+        <h2>My Work</h2>
+        <div id="project-filters">
+            <button class="button" data-filter="web">Web Development</button>
+            <button class="button" data-filter="all">All</button>
+            <button class="button" data-filter="design">Design</button>
+        </div>
+        <div id="projects">
+            <!-- Projects will be dynamically generated here -->
+        </div>
+    </section>
+
+    <section id="dashboard">
+        <h2>Personal Dashboard - HTML , JavaScript and CSS Projects :-</h2>
+        <div id="Clock-manager">
+            <!-- Task manager code -->
+            <h3>1 : Clock Manager</h3>
+            <button class="button"
+                onclick="window.location.href = './Javascript Projects (Frontend projects)/JavaScript Clock project/clock.html'"
+                value="Clock">Visit Clock
+                Manager</button>
+        </div>
+        <div id="expense-tracker">
+            <h3>2 : Expense Tracker</h3>
+            <!-- Expense tracker code -->
+            <button class="button"
+                onclick="window.location.href='./Javascript Projects (Frontend projects)/Expense Tracker (Javascript)/expense.html'">Visit
+                Expense
+                Tracker</button>
+        </div>
+        <div id="weather-widget">
+            <h3>3 : Weather Widget</h3>
+            <!-- Weather widget code -->
+            <button class="button"
+                onclick="window.location.href='./Javascript Projects (Frontend projects)/Weather App/weather.html'"
+                value="Weather">Visit
+                Weather App</button>
+        </div>
+    </section>
+
+    <div class="simpleSpace">
+
+    </div>
+
+    <footer id="contact">
+        <div class="support">
+            <h2>Contact Information</h2>
+            <a href="/Support/support.html">Support Us</a>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
