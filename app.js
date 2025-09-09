@@ -1,6 +1,22 @@
+// --- NEW: HAMBURGER MENU FUNCTIONALITY ---
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("is-active");
+    navMenu.classList.toggle("is-active");
+});
+
+// Close the mobile menu when a link is clicked
+document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("is-active");
+    navMenu.classList.remove("is-active");
+}));
+
+// --- YOUR ORIGINAL JAVASCRIPT ---
 const theme_toggle = document.querySelector("#theme-toggle");
 
-theme_toggle.addEventListener("click", toggleTheme)
+theme_toggle.addEventListener("click", toggleTheme);
 
 function toggleTheme() {
     theme_toggle.classList.toggle("dark_theme");
@@ -12,7 +28,6 @@ function toggleTheme() {
     document.querySelector('header').classList.toggle('black_theme');
 }
 
-
 const skills = {
     "Web Development": ["HTML", "CSS", "JavaScript", "ES6", "DOM Manipulation", "Node"],
     "Frameworks & Templating": ["Express.js"],
@@ -20,6 +35,7 @@ const skills = {
     "Databases": ["SQL (MySQL)", "NoSQL (MongoDB)"],
     "Cloud & DevOps": ["AWS (EC2)"]
 };
+
 function loadSkills() {
     const skillsContainer = document.querySelector('#skills-container');
 

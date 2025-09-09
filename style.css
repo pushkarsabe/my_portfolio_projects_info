@@ -1,12 +1,187 @@
+/* --- Modern Header & Navigation Bar (NEW) --- */
 header {
-    background-color: #4cb69f;
-    padding: 20px 0;
+    background-color: rgba(76, 182, 159, 0.85);
+    /* Original color with slight transparency */
+    backdrop-filter: blur(10px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    /* Use percentage for better scaling */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    /* Makes the header stick to the top on scroll */
+    top: 0;
+    left: 0;
+    width: 90%;
+    /* Adjust width to account for padding */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
+/* Style for when the dark theme is active on the header */
 header.black_theme {
-    background-color: #b3b3b3;
+    background-color: rgba(50, 50, 50, 0.85);
+    /* Darker glass effect */
+}
+
+/* --- Brand/Logo Styling (NEW) --- */
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover {
+    transform: scale(1.05);
+}
+
+/* --- Navigation Menu Styling (Desktop) (NEW) --- */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 35px;
+    /* Modern way to space flex items */
+}
+
+/* --- Navigation Links & Godly Underline Animation (NEW) --- */
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    /* Required for the ::after pseudo-element */
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #c6e8e0;
+    transform: scaleX(0);
+    /* Start with no underline */
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+    /* Smooth animation */
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    /* Animate underline to full width */
+    transform-origin: bottom left;
+}
+
+.nav-link:hover {
+    color: #e2e6ea;
+}
+
+/* --- Theme Toggle Button Styling (UPDATED) --- */
+#theme-toggle {
+    background-color: #c6e8e0;
+    color: #2c1307;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+#theme-toggle:hover {
+    transform: translateY(-2px);
+    /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark theme styles for the toggle button */
+#theme-toggle.dark_theme {
+    background-color: #333;
     color: white;
 }
+
+/* --- Hamburger Menu Icon (NEW) --- */
+.hamburger {
+    display: none;
+    /* Hidden on desktop */
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Responsive Design (Mobile View) (NEW) --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        /* Show hamburger on mobile */
+    }
+
+    /* Animate hamburger to an 'X' shape when active */
+    .hamburger.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: 100%;
+        /* Start off-screen */
+        top: 75px;
+        /* Position below header */
+        background-color: #4cb69f;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        gap: 20px;
+        padding: 30px 0;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.is-active {
+        left: 0;
+        /* Slide into view */
+    }
+
+    /* Adjust dark theme for mobile menu */
+    header.black_theme .nav-menu {
+        background-color: #323232;
+    }
+}
+
+
+/* --- YOUR ORIGINAL STYLES BELOW --- */
 
 #backgroundImage {
     display: flex;
@@ -26,41 +201,6 @@ header.black_theme {
     object-fit: cover;
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    padding: 0px;
-}
-
-nav li {
-    margin: 0 45px;
-}
-
-#theme-toggle {
-    background-color: #c6e8e0;
-    border-radius: 15px;
-}
-
-#theme-toggle:hover {
-    background-color: #6cc3b0;
-}
-
-nav a,
-#theme-toggle {
-    text-decoration: none;
-    color: #2c1307;
-    font-size: 16px;
-    padding: 8px 12px;
-    transition: background-color 0.3s ease;
-}
-
-
-nav a:hover {
-    background-color: #e2e6ea;
-}
-
 .button {
     padding: 5px;
     border-radius: 6px;
@@ -73,15 +213,6 @@ nav a:hover {
 
 .button:hover {
     background-color: #0056b3;
-}
-
-#theme-toggle.dark_theme {
-    background-color: #090909;
-    color: white;
-}
-
-#theme-toggle.dark_theme:hover {
-    background-color: #3B3B3B;
 }
 
 #home {
@@ -256,8 +387,7 @@ nav a:hover {
     background-color: #4cb69f;
 }
 
-
-/* Responsive Design */
+/* Responsive Design for About Section */
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
@@ -270,25 +400,20 @@ nav a:hover {
     }
 }
 
-
 .contact-info-footer {
     color: white;
 }
 
 .contact-info-footer p {
     margin: 10px 0;
-    /* Increased space between lines */
     font-size: 1.1em;
-    /* Made the text slightly larger */
     letter-spacing: 0.5px;
-    /* Added subtle letter spacing for clarity */
 }
 
 .contact-info-footer a {
     color: #c6e8e0;
     text-decoration: none;
     font-weight: bold;
-    /* Make the email link stand out */
     transition: color 0.3s ease;
 }
 
