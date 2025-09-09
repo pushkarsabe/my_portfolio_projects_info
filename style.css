@@ -1,33 +1,44 @@
-/* --- Modern Header & Navigation Bar (NEW) --- */
+/* --- Global Reset & Body Styles (IMPROVED) --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    /* Default background */
+    overflow-x: hidden;
+    /* Prevents horizontal scroll from the mobile menu */
+}
+
+/* --- Modern Header & Navigation Bar --- */
 header {
     background-color: rgba(76, 182, 159, 0.85);
-    /* Original color with slight transparency */
     backdrop-filter: blur(10px);
-    /* Frosted glass effect */
     -webkit-backdrop-filter: blur(10px);
     padding: 15px 5%;
-    /* Use percentage for better scaling */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    /* Makes the header stick to the top on scroll */
     top: 0;
     left: 0;
-    width: 90%;
-    /* Adjust width to account for padding */
+    width: 100%;
+    /* Corrected width */
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
 
-/* Style for when the dark theme is active on the header */
 header.black_theme {
     background-color: rgba(50, 50, 50, 0.85);
-    /* Darker glass effect */
 }
 
-/* --- Brand/Logo Styling (NEW) --- */
 .nav-brand {
     font-size: 1.5rem;
     font-weight: bold;
@@ -40,18 +51,13 @@ header.black_theme {
     transform: scale(1.05);
 }
 
-/* --- Navigation Menu Styling (Desktop) (NEW) --- */
 .nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
     gap: 35px;
-    /* Modern way to space flex items */
 }
 
-/* --- Navigation Links & Godly Underline Animation (NEW) --- */
 .nav-link {
     color: #ffffff;
     text-decoration: none;
@@ -59,7 +65,6 @@ header.black_theme {
     font-weight: 500;
     padding: 5px 0;
     position: relative;
-    /* Required for the ::after pseudo-element */
     transition: color 0.3s ease;
 }
 
@@ -72,15 +77,12 @@ header.black_theme {
     left: 0;
     background-color: #c6e8e0;
     transform: scaleX(0);
-    /* Start with no underline */
     transform-origin: bottom right;
     transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-    /* Smooth animation */
 }
 
 .nav-link:hover::after {
     transform: scaleX(1);
-    /* Animate underline to full width */
     transform-origin: bottom left;
 }
 
@@ -88,7 +90,6 @@ header.black_theme {
     color: #e2e6ea;
 }
 
-/* --- Theme Toggle Button Styling (UPDATED) --- */
 #theme-toggle {
     background-color: #c6e8e0;
     color: #2c1307;
@@ -104,20 +105,16 @@ header.black_theme {
 
 #theme-toggle:hover {
     transform: translateY(-2px);
-    /* Slight lift effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Dark theme styles for the toggle button */
 #theme-toggle.dark_theme {
     background-color: #333;
     color: white;
 }
 
-/* --- Hamburger Menu Icon (NEW) --- */
 .hamburger {
     display: none;
-    /* Hidden on desktop */
     cursor: pointer;
     background: transparent;
     border: none;
@@ -133,14 +130,14 @@ header.black_theme {
     transition: all 0.3s ease-in-out;
 }
 
-/* --- Responsive Design (Mobile View) (NEW) --- */
+/* --- Responsive Design (Mobile View) --- */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        /* Show hamburger on mobile */
+        z-index: 1001;
+        /* Ensure it's on top of the menu */
     }
 
-    /* Animate hamburger to an 'X' shape when active */
     .hamburger.is-active .bar:nth-child(2) {
         opacity: 0;
     }
@@ -157,16 +154,19 @@ header.black_theme {
         position: fixed;
         left: 100%;
         /* Start off-screen */
-        top: 75px;
-        /* Position below header */
+        top: 0;
+        /* Align to the top of the viewport */
         background-color: #4cb69f;
         flex-direction: column;
+        justify-content: center;
+        /* Center items vertically */
         width: 100%;
+        height: 100vh;
+        /* Full screen height */
         text-align: center;
-        transition: 0.3s;
-        gap: 20px;
-        padding: 30px 0;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease-in-out;
+        gap: 40px;
+        padding: 0;
     }
 
     .nav-menu.is-active {
@@ -174,7 +174,6 @@ header.black_theme {
         /* Slide into view */
     }
 
-    /* Adjust dark theme for mobile menu */
     header.black_theme .nav-menu {
         background-color: #323232;
     }
